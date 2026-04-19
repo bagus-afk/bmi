@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<!--HTML-->
+<body>
+  <div id="container">
+  <h1 style="color:blue; text-shadow: -1px -1px 0 black,
+     4px -1px 0 white,
+    -1px  4px 0 white,
+     4px  1px 0 white; text-align:center; margin-bottom:5px; font-size:70px; ">BMI </h1>
+  <h4 style="color:blue; text-shadow: 5px 5px 10px; text-align:center; margin-top:5px">from tiyar raja html</h4><br> <br>
+  <label class="label">berat badan (kg) :</label>
+  <input type="Number" name="berat badan" id="beratBadan" class="form"> <br> <br>
+  <label class="label">tinggi badan (cm) :</label>
+  <input type="Number" name="" id="tinggiBadan" class="form"> <br> <br><br>
+  <button type="submit" id="tombol">hitung</button>
+  <br><br>
+  <h3 id="myH3" style="color : blue; text-shadow:5px 5px 10px">BMI kamu : ...</h3>
+  <img class="gambar" src="" width="320" >
+  <div id="lisWoy">
+  <h3 id="motivasi" style="font-size:20px"></h3>
+  <ol type="1">
+    <li id="list1"></li>
+    <li id="list2"></li>
+    <li id="list3"></li>
+    <li id="list4"></li>
+    <li id="list5"></li>
+    <li id="list6"></li>
+    <li id="list7"></li>
+  </ol>
+  </div>
+  </div>
+<!--CSS-->
+  <style>
+  body {
+  background-color:#bffdff;
+  }
+  #tombol {
+    display:block;
+    width:90px;
+    height:50px;
+    font-size:30px;
+    color:#09ff00;
+    background-color:black;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-left:auto;
+  }
+  .form {
+    border-radius:10px;
+    width:50px;
+    height:30px;
+    font-size:25px;
+    text-align:center;
+  }
+  .label {
+    font-weight: bold;
+    font-size:20px;
+    margin:12px;
+    padding :2px;
+  }
+  #container {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+  #lisWoy {
+  display: none;
+}
+  </style>
+
+<!--JAVA SCRIPT-->
+  <script>
+    document.getElementById("lisWoy").style.display = "none";
+    document.getElementById("tombol").onclick = function (){
+      let berat = Number(document.getElementById("beratBadan").value);
+    let tinggi = Number(document.getElementById("tinggiBadan").value);
+  
+    let tinggiFix = tinggi / 100
+  
+    let BMI = berat / (tinggiFix * tinggiFix)
+    
+    let kategori;
+    let img=document.querySelector(".gambar")
+  if (BMI < 12) {
+    kategori = "krempeng, kantung kemih lu noh keliatan";
+    img.src = "underweight1.jpeg";
+    document.getElementById("motivasi").textContent = "kalau kamu kurus, kamu bisa lakuin ini:";
+    document.getElementById("list1").textContent = "Makan lebih sering, jangan nunggu lapar";
+    document.getElementById("list2").textContent = "Minimal 3x makan besar + 2–3x snack. Tubuh kamu butuh “bahan bakar” terus.";
+    document.getElementById("list3").textContent = "Pilih makanan tinggi kalori tapi sehat. Kayak nasi, telur, ayam, susu, kacang, alpukat. Jangan cuma junk food ya.";
+    document.getElementById("list4").textContent = "Perbanyak protein. Biar berat badan naiknya jadi otot, bukan cuma lemak.";
+    document.getElementById("list5").textContent = "Olahraga, terutama latihan beban. Biar badan kamu kebentuk, bukan cuma “nambah angka” di timbangan.";
+    document.getElementById("list6").textContent = "Tidur cukup. 7–9 jam, karena pertumbuhan dan perbaikan tubuh terjadi pas kamu tidur.";
+    document.getElementById("list7").textContent ="Konsisten, jangan cuma semangat di awal. Naik berat badan itu butuh waktu, bukan instan.";
+  } else if (BMI < 18.5) {
+    kategori = "kurus, skeleton anyink";
+    img.src = "underweight2.jpeg";
+    document.getElementById("motivasi").textContent = "kalau kamu kurus, kamu bisa lakuin ini:";
+    document.getElementById("list1").textContent = "Makan lebih sering, jangan nunggu lapar";
+    document.getElementById("list2").textContent = "Minimal 3x makan besar + 2–3x snack. Tubuh kamu butuh “bahan bakar” terus.";
+    document.getElementById("list3").textContent = "Pilih makanan tinggi kalori tapi sehat. Kayak nasi, telur, ayam, susu, kacang, alpukat. Jangan cuma junk food ya.";
+    document.getElementById("list4").textContent = "Perbanyak protein. Biar berat badan naiknya jadi otot, bukan cuma lemak.";
+    document.getElementById("list5").textContent = "Olahraga, terutama latihan beban. Biar badan kamu kebentuk, bukan cuma “nambah angka” di timbangan.";
+    document.getElementById("list6").textContent = "Tidur cukup. 7–9 jam, karena pertumbuhan dan perbaikan tubuh terjadi pas kamu tidur.";
+    document.getElementById("list7").textContent ="Konsisten, jangan cuma semangat di awal. Naik berat badan itu butuh waktu, bukan instan.";
+  } else if (BMI >= 18.5 && BMI < 25) {
+    kategori = "normal, mayan lah";
+    img.src = "weight.jpeg";
+    document.getElementById("motivasi").textContent = "kalau kamu sudah ideal, kamu bisa lakuin ini:";
+    document.getElementById("list1").textContent = "Jaga pola makan tetap seimbang. Jangan mentang-mentang udah ideal terus bebas makan asal-asalan.";
+    document.getElementById("list2").textContent = "Tetap olahraga rutin. Biar badan tetap fit dan nggak gampang turun/naik drastis.";
+    document.getElementById("list3").textContent = "Cukup minum air. Bantu metabolisme tetap lancar.";
+    document.getElementById("list4").textContent = "Tidur yang cukup. Biar kondisi tubuh tetap stabil dan sehat.";
+    document.getElementById("list5").textContent = "Pantau berat badan secara berkala. Biar kamu sadar kalau mulai berubah.";
+    document.getElementById("list6").textContent = "Hindari stres berlebihan. Karena bisa ngaruh ke pola makan dan kesehatan.";
+    document.getElementById("list7").textContent = "Pertahankan konsistensi. Kunci utamanya bukan capai ideal, tapi menjaga itu.";
+  } else if (BMI >= 25 && BMI < 30) {
+    kategori = "gemuk, gajah anyink";
+    img.src = "overweight2.jpeg";
+    document.getElementById("motivasi").textContent = "kalau kamu gemuk, kamu bisa lakuin ini:";
+    document.getElementById("list1").textContent = "Atur pola makan. Kurangi makanan tinggi gula dan lemak berlebihan.";
+    document.getElementById("list2").textContent = "Perbanyak makanan sehat. Sayur, buah, protein, dan air putih itu wajib.";
+    document.getElementById("list3").textContent = "Olahraga rutin. Nggak harus berat, yang penting konsisten (jalan, lari, workout ringan).";
+    document.getElementById("list4").textContent = "Kurangi minuman manis. Ganti dengan air putih atau minuman tanpa gula.";
+    document.getElementById("list5").textContent = "Atur porsi makan. Jangan berlebihan, makan secukupnya tapi tetap bergizi.";
+    document.getElementById("list6").textContent = "Tidur cukup. Kurang tidur bisa bikin berat badan makin naik.";
+    document.getElementById("list7").textContent = "Konsisten & sabar. Turunin berat badan itu proses, bukan sulap.";
+  } else {
+    kategori = "obesitas, gajah kalah sama lu";
+    img.src = "overweight3.jpeg";
+    document.getElementById("motivasi").textContent = "kalau kamu gemuk, kamu bisa lakuin ini:";
+    document.getElementById("list1").textContent = "Atur pola makan. Kurangi makanan tinggi gula dan lemak berlebihan.";
+    document.getElementById("list2").textContent = "Perbanyak makanan sehat. Sayur, buah, protein, dan air putih itu wajib.";
+    document.getElementById("list3").textContent = "Olahraga rutin. Nggak harus berat, yang penting konsisten (jalan, lari, workout ringan).";
+    document.getElementById("list4").textContent = "Kurangi minuman manis. Ganti dengan air putih atau minuman tanpa gula.";
+    document.getElementById("list5").textContent = "Atur porsi makan. Jangan berlebihan, makan secukupnya tapi tetap bergizi.";
+    document.getElementById("list6").textContent = "Tidur cukup. Kurang tidur bisa bikin berat badan makin naik.";
+    document.getElementById("list7").textContent = "Konsisten & sabar. Turunin berat badan itu proses, bukan sulap.";
+  }
+  
+    document.getElementById("myH3").textContent = "BMI kamu: " + BMI.toFixed(2) + "(" + kategori + ")"
+    document.getElementById("lisWoy").style.display = "block";
+    }
+  </script>
+</body>
+</html>
